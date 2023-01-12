@@ -1,4 +1,4 @@
-## _A Discord bot written in python what integrates ChatGPT and Discord_
+## _A Discord bot written in python that integrates ChatGPT and Discord_
 
 
 
@@ -22,5 +22,5 @@ Assuming you've already created a discord bot, in line 32, change TOKEN to your 
 Here, you only need to change the port in the line 13.
 And now, we are ready!
 ## Contact
-Any suggestion or quesiton? Contact me!
+Any suggestion or question? Contact me!
 Discord: Apenas_um_nerd#7866
