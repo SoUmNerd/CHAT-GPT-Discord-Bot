@@ -12,7 +12,7 @@ client = discord.Client(intents=intents)
 @bot.command()
 async def chatgpt(ctx, *, msg=''):
     # Set up the OpenAI API client
-    openai.api_key = "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"
+    openai.api_key = "api-key" #Change this
     inputdiscord = msg
     # Set up the model and prompt
     model_engine = "text-davinci-003"
