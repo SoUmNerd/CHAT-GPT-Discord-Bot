@@ -1,19 +1,21 @@
 import openai
 import discord
-from discord.ext import commands
+from discord import app_commands
 
 
 
 intents = discord.Intents.default()
 intents.message_content = True
-bot = commands.Bot(command_prefix='!', intents=intents) #Change ! to the command prefix you want
 client = discord.Client(intents=intents)
+tree = app_commands.CommandTree(client)
 
-@bot.command()
-async def chatgpt(ctx, *, msg=''):
+
+@tree.command(name='chatgpt', description='Chat GPT on discord.')
+async def chatgpt(interaction: discord.Interaction, input: str):
+    await interaction.response.defer()
     # Set up the OpenAI API client
     openai.api_key = "api-key" #Change this
-    inputdiscord = msg
+    inputdiscord = input
     # Set up the model and prompt
     model_engine = "text-davinci-003"
     prompt = (inputdiscord)
@@ -27,8 +29,6 @@ async def chatgpt(ctx, *, msg=''):
     temperature=0.5,
     )
     response = completion.choices[0].text
-    await ctx.send(response)
+    await interaction.followup.send(response)
 
-bot.run('TOKEN') #CHANGE TO YOUR BOT TOKEN
-
-
+client.run('TOKEN') #CHANGE TO YOUR BOT TOKEN
